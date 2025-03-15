@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -15,7 +16,7 @@ const Login = () => {
       password: data.Password,
     };
 
-    axios.post("http://localhost:3000/user/login", userInfo)
+    axios.post("api/user/login", userInfo)
       .then((response) => {
         console.log(response.data);
       })
@@ -70,7 +71,7 @@ const Login = () => {
 
             <div className="text-center mt-4 text-gray-600">
               Don't have an account?
-              <span className="text-slate-600 font-semibold ml-1 cursor-pointer hover:underline">Sign Up</span>
+              <Link to={"/signup"} className="text-slate-600 font-semibold ml-1 cursor-pointer hover:underline">Sign Up</Link>
             </div>
           </form>
 
